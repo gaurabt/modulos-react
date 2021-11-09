@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import HousePrediction from './components/housePrediction'
+import ChurnPrediction from './components/churnPrediction'
+import GalaxyType from './components/galaxyType'
+import BikesDemand from './components/bikesDemand'
+import Error from './components/Error'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Home from './Home'
+
+
+const App = () => {
+    return (
+    <Router>
+    <Switch>
+        <Route exact path = '/'><Home /></Route>
+        <Route path='/houseprediction'><HousePrediction/></Route>
+        <Route path='/churnprediction'><ChurnPrediction/></Route>
+        <Route path='/galaxytype'><GalaxyType/></Route>
+        <Route path='/bikesdemandforecast'><BikesDemand/></Route>
+        <Route path='*'><Error/></Route>
+    </Switch>
+    </Router>
+    )
 }
 
-export default App;
+export default App
